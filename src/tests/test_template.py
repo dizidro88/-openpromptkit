@@ -1,6 +1,6 @@
 import pytest
 
-from openpromptkit.template import PromptTemplate
+from openpromptkit import PromptTemplate
 
 
 def test_template_detects_variables():
@@ -31,3 +31,26 @@ def test_template_rejects_missing_variables():
 
     with pytest.raises(ValueError):
         prompt.render()
+
+
+def test_empty_template_is_rejected():
+    with pytest.raises(ValueError):
+        PromptTemplate("")
+
+
+def test_whitespace_only_template_is_rejected():
+    with pytest.raises(ValueError):
+        PromptTemplate("   ")
+
+
+def test_malformed_template_is_rejected():
+    with pytest.raises(ValueError):
+        PromptTemplate("Analyze {{subject.")
+
+
+def test_duplicate_variables_are_unique():
+    prompt = PromptTemplate(
+        "{{role}} analyzes {{subject}} as a {{role}}."
+    )
+
+    assert prompt.variables == ("role", "subject")
