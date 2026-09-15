@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "openpromptkit"
+version = "0.1.0"
+description = "An open-source toolkit for building structured, reusable, and testable AI prompts."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+authors = [
+    {name = "Daniel Izidro"}
+]
+keywords = [
+    "ai",
+    "prompt-engineering",
+    "llm",
+    "generative-ai",
+    "prompt",
+    "workflow"
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries"
+]
+
+[project.urls]
+Homepage = "https://github.com/dizidro88/openpromptkit"
+Repository = "https://github.com/dizidro88/openpromptkit"
+Issues = "https://github.com/dizidro88/openpromptkit/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
